@@ -58,6 +58,29 @@ class WitSensorManager : ObservableObject, IBluetoothEventObserver, IBwt901bleRe
         }
     }
     
+    // Get the data of the device and concatenate it into a string
+    func getDeviceDataToString(_ device:Bwt901ble) -> String {
+        var s = ""
+        s  = "\(s)Device name:\(device.name ?? "")\r"
+        s  = "\(s)Device Bluetooth address:\(device.mac ?? "")\r"
+        //s  = "\(s)Version number:\(device.getDeviceData(WitSensorKey.VersionNumber) ?? "")\r\n"
+        s  = "\(s)Acceleration X:\(device.getDeviceData(WitSensorKey.AccX) ?? "") g\r"
+        s  = "\(s)Acceleration Y:\(device.getDeviceData(WitSensorKey.AccY) ?? "") g\r"
+        s  = "\(s)Acceleration Z:\(device.getDeviceData(WitSensorKey.AccZ) ?? "") g\r"
+//        s  = "\(s)Angular velocity X:\(device.getDeviceData(WitSensorKey.GyroX) ?? "") °/s\r\n"
+//        s  = "\(s)Angular velocity Y:\(device.getDeviceData(WitSensorKey.GyroY) ?? "") °/s\r\n"
+//        s  = "\(s)Angular velocity Z:\(device.getDeviceData(WitSensorKey.GyroZ) ?? "") °/s\r\n"
+        s  = "\(s)Angle X:\(device.getDeviceData(WitSensorKey.AngleX) ?? "") °\r"
+        s  = "\(s)Angle Y:\(device.getDeviceData(WitSensorKey.AngleY) ?? "") °\r"
+        s  = "\(s)Angle Z:\(device.getDeviceData(WitSensorKey.AngleZ) ?? "") °\r"
+        s  = "\(s)Magnetic field X:\(device.getDeviceData(WitSensorKey.MagX) ?? "") μt\r"
+        s  = "\(s)Magnetic field Y:\(device.getDeviceData(WitSensorKey.MagY) ?? "") μt\r"
+        s  = "\(s)Magnetic field Z:\(device.getDeviceData(WitSensorKey.MagZ) ?? "") μt\r"
+        s  = "\(s)Electricity:\(device.getDeviceData(WitSensorKey.ElectricQuantityPercentage) ?? "") %\r"
+        s  = "\(s)Temperature:\(device.getDeviceData(WitSensorKey.Temperature) ?? "") °C\r"
+        return s
+    }
+    
     // Turn off the device
     func closeDevice(bwt901ble: Bwt901ble?){
         print("Turn off the device")
@@ -106,5 +129,8 @@ class WitSensorManager : ObservableObject, IBluetoothEventObserver, IBwt901bleRe
         let frequency = Double(self.dataReceptionCount) / duration
         //print("count: \(self.dataReceptionCount) duration: \(duration)")
         print("frequency: \(frequency)")
+        
+        let deviceData = getDeviceDataToString(bwt901ble)
+        print(deviceData)
     }
 }
