@@ -11,7 +11,24 @@
 		4B8A8E1D2999CB7000AF5EE5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8A8E1C2999CB7000AF5EE5 /* ContentView.swift */; };
 		4B8A8E1F2999CB7000AF5EE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B8A8E1E2999CB7000AF5EE5 /* Assets.xcassets */; };
 		4B8A8E222999CB7000AF5EE5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B8A8E212999CB7000AF5EE5 /* Preview Assets.xcassets */; };
+		4B8A8E292999CB8200AF5EE5 /* WitSensorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8A8E282999CB8200AF5EE5 /* WitSensorManager.swift */; };
+		4B8A8E2C2999CCC000AF5EE5 /* WitSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B8A8E2A2999CBC000AF5EE5 /* WitSDK.framework */; };
+		4B8A8E2D2999CCC000AF5EE5 /* WitSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4B8A8E2A2999CBC000AF5EE5 /* WitSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4B8A8E2E2999CCC000AF5EE5 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4B8A8E2D2999CCC000AF5EE5 /* WitSDK.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		4B8A8E172999CB7000AF5EE5 /* WitSensorTestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WitSensorTestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -19,6 +36,8 @@
 		4B8A8E1C2999CB7000AF5EE5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4B8A8E1E2999CB7000AF5EE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4B8A8E212999CB7000AF5EE5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4B8A8E282999CB8200AF5EE5 /* WitSensorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WitSensorManager.swift; sourceTree = "<group>"; };
+		4B8A8E2A2999CBC000AF5EE5 /* WitSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WitSDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B8A8E2C2999CCC000AF5EE5 /* WitSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -35,6 +55,7 @@
 		4B8A8E0E2999CB7000AF5EE5 = {
 			isa = PBXGroup;
 			children = (
+				4B8A8E2A2999CBC000AF5EE5 /* WitSDK.framework */,
 				4B8A8E192999CB7000AF5EE5 /* WitSensorTestProject */,
 				4B8A8E182999CB7000AF5EE5 /* Products */,
 			);
@@ -55,6 +76,7 @@
 				4B8A8E1C2999CB7000AF5EE5 /* ContentView.swift */,
 				4B8A8E1E2999CB7000AF5EE5 /* Assets.xcassets */,
 				4B8A8E202999CB7000AF5EE5 /* Preview Content */,
+				4B8A8E282999CB8200AF5EE5 /* WitSensorManager.swift */,
 			);
 			path = WitSensorTestProject;
 			sourceTree = "<group>";
@@ -77,6 +99,7 @@
 				4B8A8E132999CB7000AF5EE5 /* Sources */,
 				4B8A8E142999CB7000AF5EE5 /* Frameworks */,
 				4B8A8E152999CB7000AF5EE5 /* Resources */,
+				4B8A8E2E2999CCC000AF5EE5 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -138,6 +161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B8A8E1D2999CB7000AF5EE5 /* ContentView.swift in Sources */,
+				4B8A8E292999CB8200AF5EE5 /* WitSensorManager.swift in Sources */,
 				4B8A8E1B2999CB7000AF5EE5 /* WitSensorTestProjectApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,7 +293,12 @@
 				DEVELOPMENT_ASSET_PATHS = "\"WitSensorTestProject/Preview Content\"";
 				DEVELOPMENT_TEAM = P9TVSH3F53;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -298,7 +327,12 @@
 				DEVELOPMENT_ASSET_PATHS = "\"WitSensorTestProject/Preview Content\"";
 				DEVELOPMENT_TEAM = P9TVSH3F53;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
