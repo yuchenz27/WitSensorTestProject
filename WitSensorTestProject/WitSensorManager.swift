@@ -81,6 +81,13 @@ class WitSensorManager : ObservableObject, IBluetoothEventObserver, IBwt901bleRe
         return s
     }
     
+    func processDeviceData(_ device: Bwt901ble) {
+        let accX = device.getDeviceData(WitSensorKey.AccX) ?? ""
+        let accY = device.getDeviceData(WitSensorKey.AccY) ?? ""
+        let accZ = device.getDeviceData(WitSensorKey.AccZ) ?? ""
+        print("Acceleration (\(accX), \(accY), \(accZ))")
+    }
+    
     // Turn off the device
     func closeDevice(bwt901ble: Bwt901ble?){
         print("Turn off the device")
@@ -128,9 +135,10 @@ class WitSensorManager : ObservableObject, IBluetoothEventObserver, IBwt901bleRe
         let duration = ProcessInfo.processInfo.systemUptime - self.startTime
         let frequency = Double(self.dataReceptionCount) / duration
         //print("count: \(self.dataReceptionCount) duration: \(duration)")
-        print("frequency: \(frequency)")
+        //print("frequency: \(frequency)")
         
-        let deviceData = getDeviceDataToString(bwt901ble)
-        print(deviceData)
+//        let deviceData = getDeviceDataToString(bwt901ble)
+//        print(deviceData)
+        processDeviceData(bwt901ble)
     }
 }
