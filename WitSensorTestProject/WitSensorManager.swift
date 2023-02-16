@@ -51,7 +51,7 @@ class WitSensorManager : ObservableObject, IBluetoothEventObserver, IBwt901bleRe
             try bwt901ble?.openDevice()
             // Monitor data
             bwt901ble?.registerListenKeyUpdateObserver(obj: self)
-            self.startTime = ProcessInfo.processInfo.systemUptime
+            print("Connected with bluetooth device \(String(describing: bwt901ble?.name))")
         }
         catch{
             print("Failed to open device")
@@ -85,7 +85,19 @@ class WitSensorManager : ObservableObject, IBluetoothEventObserver, IBwt901bleRe
         let accX = device.getDeviceData(WitSensorKey.AccX) ?? ""
         let accY = device.getDeviceData(WitSensorKey.AccY) ?? ""
         let accZ = device.getDeviceData(WitSensorKey.AccZ) ?? ""
+        
+        let angX = device.getDeviceData(WitSensorKey.AngleX) ?? ""
+        let angY = device.getDeviceData(WitSensorKey.AngleY) ?? ""
+        let angZ = device.getDeviceData(WitSensorKey.AngleZ) ?? ""
+        
+        let elec = device.getDeviceData(WitSensorKey.ElectricQuantityPercentage) ?? ""
+        let temp = device.getDeviceData(WitSensorKey.Temperature) ?? ""
+        
+        print("")
         print("Acceleration (\(accX), \(accY), \(accZ))")
+        print("Angle (\(angX), \(angY), \(angZ))")
+        print("Electrivity \(elec)")
+        print("Temperature \(temp)")
     }
     
     // Turn off the device
